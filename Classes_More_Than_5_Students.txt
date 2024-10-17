@@ -74,3 +74,23 @@ FROM (
     GROUP BY class
 ) AS class_counts
 WHERE class_count >= 5;
+
+
+Solution 3:
+
+# Write your MySQL query statement below
+WITH class_counts AS (
+    SELECT
+        class,
+        COUNT(student) AS student_count
+    FROM
+        Courses
+    GROUP BY
+        class
+)
+SELECT
+    class
+FROM
+    class_counts
+WHERE
+    student_count >= 5;
